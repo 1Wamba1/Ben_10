@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package week_1;
 
 import java.util.*;
@@ -31,15 +26,16 @@ public class Game {
     
     
     public void pSetUp(){
+        //By @Dallion
         pWeapon = "Omnitrix";
         /*
         This is where the story line will come in to play. setting up the story
         and setting up the character. Have user press 1 to pick up Omnitrix.
         */
         
-        /*Storyline done:
-        @Amrits
+        /*Storyline by:
         @Dallion
+        @Amrits
         */
                 
          System.out.println("You are on a road-trip with Grandpa Max and Gwen! "
@@ -72,34 +68,23 @@ public class Game {
         }else{
         System.out.println("Press 1 to continue!");
         choice = kb.nextInt();
-    }
+        }
         }while(tof = false);
         
         System.out.println("\n" + pName + ": 'With these new powers I can save Grandpa Max and Gwen!'\n");
-        
     }
     
     public void Game(){
         
         /*
-        The fight takes place
-        */
-        System.out.println("As " + pName + " looks for thier family, " + pName + " stumbles upon "
-                + "a lair. Two aliens rush out.\n" + villian[0] + "'I, " + villian[0] + 
-                ", and my brother " + villian[1] + " are not giving them back!'");
-        System.out.println(villian[0] + " lunges towards you.");
-        
-        /*
         Below is the menu the user should choose from
         */
         Menu();
+        
         //Second battle Eon
         villianTwo();
                 
         Menu2();
-        
-        System.out.println("Eon: 'ARGGH! You killed my brother and me! " + pName + 
-                ", you are a worthy opponent'.");
         
         Congrats();
    
@@ -111,68 +96,17 @@ public class Game {
         Game();
     }
     
-    public void Menu2(){
-        System.out.println("-----------------------------");
-        System.out.println("1. Transform and attack.");
-        System.out.println("2. Eat health potion.");
-        System.out.println("3. Surrender.");
-        System.out.println("-----------------------------");
-        choice = kb.nextInt();
-        
-        switch (choice) {
-            case 1 -> {
-                System.out.println("What character do you want to transform in to?\nPress 1-4 to select one character."
-                        + Arrays.toString(hero));
-                select = kb.nextInt();
-                System.out.println("Transforming into . . .");
-                //Player transforms into Omni characters
-                switch  (select) {
-                    case 1 -> fight2(select, v1HP, pHP);
-                    case 2 -> fight2(select, v1HP, pHP);
-                    case 3 -> fight2(select, v1HP, pHP);
-                    case 4 -> fight2(select, v1HP, pHP);
-                    default -> System.out.println("Press 1-4");
-                }
-            }
-
-            case 2 -> {
-                healHP(maxHP);
-                Menu2();
-            }
-            case 3 -> {
-                //player should be able  run away, however, return to battle. If player
-                //runs away 3 times. Game Over
-                System.out.println("Are you sure you want to surrender?");
-                String YoN = kb.next();
-                if(null == YoN){
-                    System.out.println("Yes or no.");
-                    Menu2();
-                    
-                }else switch (YoN) {
-                    case "yes":
-                    case "y":
-                    case "Yes":
-                        System.out.println("Game Over. " + villian[0] + " and " 
-                                + villian[1] + " kidnapped your family.");
-                        System.exit(0);
-                    case "no":
-                    case "n":
-                    case "No":
-                        Menu2();
-                        break;
-                    default:
-                        System.out.println("Yes or no.");
-                        Menu2();
-                        break;
-                }
-            }        
-    }
-        //Player should be able the recover the health to 100
-                //Player should be able the recover the health to 100
-    }
-   
     public void Menu(){
+        //By @Dallion
+         /*
+        The fight takes place
+        */
         
+        System.out.println("As " + pName + " looks for thier family, " + pName + " stumbles upon "
+                + "a lair. Two aliens rush out.\n" + villian[0] + ": 'I, " + villian[0] + 
+                ", and my brother " + villian[1] + " are not giving them back!'");
+        
+        System.out.println(villian[0] + " lunges towards you.");
         System.out.println("-----------------------------");
         System.out.println("1. Transform and attack.");
         System.out.println("2. Eat health potion.");
@@ -183,7 +117,7 @@ public class Game {
         switch (choice) {
             case 1 -> {
                 System.out.println("What character do you want to transform in to? \n"
-                        + Arrays.toString(hero) + "\n Press 1-4 to select one character.");
+                        + Arrays.toString(hero) + "\nPress 1-4 to select one character.");
                 select = kb.nextInt();
                 System.out.println("Transforming into . . .");
                 //Player transforms into Omni characters
@@ -232,8 +166,70 @@ public class Game {
         //Player should be able the recover the health to 100
             }
     
+    public void Menu2(){
+        //@Dallion
+        System.out.println("-----------------------------");
+        System.out.println("1. Transform and attack.");
+        System.out.println("2. Eat health potion.");
+        System.out.println("3. Surrender.");
+        System.out.println("-----------------------------");
+        choice = kb.nextInt();
+        
+        switch (choice) {
+            case 1 -> {
+                System.out.println("What character do you want to transform in to?\nPress 1-4 to select one character.\n"
+                        + Arrays.toString(hero));
+                select = kb.nextInt();
+                System.out.println("Transforming into . . .");
+                //Player transforms into Omni characters
+                switch  (select) {
+                    case 1 -> fight2(select, v1HP, pHP);
+                    case 2 -> fight2(select, v1HP, pHP);
+                    case 3 -> fight2(select, v1HP, pHP);
+                    case 4 -> fight2(select, v1HP, pHP);
+                    default -> System.out.println("Press 1-4");
+                }
+            }
+
+            case 2 -> {
+                healHP(maxHP);
+                Menu2();
+            }
+            case 3 -> {
+                //player should be able  run away, however, return to battle. If player
+                //runs away 3 times. Game Over
+                System.out.println("Are you sure you want to surrender?");
+                String YoN = kb.next();
+                if(null == YoN){
+                    System.out.println("Yes or no.");
+                    Menu2();
+                    
+                }else switch (YoN) {
+                    case "yes":
+                    case "y":
+                    case "Yes":
+                        System.out.println("Game Over. " + villian[0] + " and " 
+                                + villian[1] + " kidnapped your family.");
+                        System.exit(0);
+                    case "no":
+                    case "n":
+                    case "No":
+                        Menu2();
+                        break;
+                    default:
+                        System.out.println("Yes or no.");
+                        Menu2();
+                        break;
+                }
+            }        
+    }
+        //Player should be able the recover the health to 100
+                //Player should be able the recover the health to 100
+    }
+    
     //When player is in the action of fighting after choosing their character
     public void fight(int a, int v, int p){
+        //By @Dallion
         this.select = a;
         this.v1HP = v;
         this.pHP = p;
@@ -266,6 +262,7 @@ public class Game {
     }
     
     public void fight2(int a,int v, int p){
+        //By @Dallion
         this.select = a;
         this.v2HP = v;
         this.pHP = p;
@@ -298,6 +295,7 @@ public class Game {
     
     //Takes variable and track damge and health from both hero and villian
     public void attack(int a, int b){
+        //By @Dallion
         this.pHP = b;
         this.v1HP = a;
         this.v2HP = a;
@@ -335,6 +333,7 @@ public class Game {
         }
       
     public void attack2(int a, int b){
+        //By @Dallion
         this.pHP = b;
         this.v1HP = a;
         this.v2HP = a;
@@ -373,28 +372,29 @@ public class Game {
     
     // declares the next villian to attack
     public void villianTwo(){
+        //By @Dallion
             System.out.println("\nYou have defeated " + villian[0] + "!");
-            
             System.out.println("Villian, " + villian[1] + " approaches!");
             System.out.println(villian[1] + ": No! You killed my brother! Now I will kill you!");
     }
     
     //generate a random number between a range
     public int getRandomNumber(int min, int max) {
-        
+        //By @Dallion
         return r.nextInt(max - min) + min;
 }
 
     //Attempting to heal player to 100
     public void healHP(int hp){
+        //By @Dallion
         hp = pHP;
         this.maxHP = hp;
        
-        System.out.println("You now have " + hp + "HP");
+        System.out.println(pName + " now have " + hp + "HP");
     }
     
     public void press1(int press){
-        
+        //By @Dallion
         do{
                if(press == 1){
                tof = true;
@@ -411,13 +411,17 @@ public class Game {
     
     //If player dies then Game Over.
     public void dead(){
+        //By @Dallion
         System.out.print("Died");
         System.exit(0);
     }
     
     //Once he is defeated, User save grandpa and gwen
     public void Congrats(){
-            System.out.println("You have saved Grandpa and Gwen! Congrarts!");
+        //By @Dallion
+        System.out.println("Eon: 'ARGGH! You killed my brother and me! " + pName + 
+                ", you are a worthy opponent'.");
+        System.out.println("You have saved Grandpa and Gwen! Congrarts!");
         }
       
     public static void main(String[] args) {
