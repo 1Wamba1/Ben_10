@@ -1,0 +1,58 @@
+package week_2;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author dalio
+ */
+public class Cat extends Shelter{
+    
+    String breed, sound;
+    
+    
+    public Cat(){
+        
+    }
+    
+    public Cat( String breed, String sound){
+        super();
+        this.breed = breed; //food brand
+        this.sound = sound; //ToF if expired
+       
+    }
+    
+    @Override
+    public String toString(){
+        return "The brand: " + breed + " . expired: " + sound;
+    }
+    
+    public int setinvID(){
+        return this.invID;
+    }
+    
+    
+    
+    public String getBreed(){
+        return breed;
+    }
+    
+    
+    public String setBred(String bred){
+        return this.breed;
+    }
+    
+    public String getSound(){
+        return sound;
+    }
+    
+     public String setSound(){
+        return this.sound;
+    }
+
+    
+}
