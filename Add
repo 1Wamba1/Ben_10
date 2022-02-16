@@ -1,1 +1,107 @@
 
+package week_2;
+
+import java.util.*;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author dalio
+ */
+public class Shelter {
+    
+        String name, book
+                ; 
+        int invID, count, price,suplvl;
+    
+    
+        public Shelter(){
+        
+        }
+        
+        //Inventory
+        public Shelter(String name, int invID, int count, int price, int suplvl){
+        super();
+            this.name = name;
+        this.invID = invID;
+        this.count = count;
+        this.price = price;
+        this.suplvl = suplvl;
+        
+}
+        //What customers view
+        public Shelter(int invID, int price){
+        this.invID = invID;
+        this.price = price;
+        }
+    
+        @Override
+    public String toString(){
+        return "You want to buy pet food.  The food ID: " + this.invID 
+                + " , you only bought: " + count + ", the price: " + price 
+                + ", supply level is: " + suplvl;
+    }
+    
+    public int getInvID(){
+        return invID;
+    }
+    
+    public int setInvID(int invID){
+        return this.invID;
+    }
+    
+    public int getCount(){
+        return count;
+    }
+    
+    public int setCount(int count){
+        return this.count;
+    }
+    
+    public int getPrice(){
+        return price;
+    }
+    
+    public int setPrice(int price){
+        return this.price;
+    }
+    
+    public int getLvl(){
+        return suplvl;
+    }
+    
+    public int setLvl(int suplvl){
+        return this.suplvl;
+    }
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Shelter shelter = new Shelter();
+        Shelter cat = new Cat();
+        Shelter dog = new Dog();
+        Cat[] addCat = new Cat[3];
+        Dog[] addDog = new Dog[3];
+        Scanner kb = new Scanner(System.in);
+        Random r = new Random();
+               
+        int random = r.nextInt(999999);
+
+        
+        System.out.println(addCat[0] = new Cat("Short Hair Domestic", "Meow"));
+        System.out.println(addCat[1] = new Cat("Long Hair Domestic", "Purr"));
+        System.out.println(addCat[2] = new Cat("Mixed Hair Domestic", "Chit"));
+       
+       
+    }
+
+   
+    
+}
