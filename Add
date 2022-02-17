@@ -1,5 +1,5 @@
 
-package week_2;
+package week_1;
 
 import java.util.*;
 
@@ -15,10 +15,9 @@ import java.util.*;
  */
 public class Shelter {
     
-        String name, book
-                ; 
-        int invID, count, price,suplvl;
-    
+        String name; 
+        int invID, count, suplvl;
+        double price;
     
         public Shelter(){
         
@@ -26,8 +25,8 @@ public class Shelter {
         
         //Inventory
         public Shelter(String name, int invID, int count, int price, int suplvl){
-        super();
-            this.name = name;
+       
+        this.name = name;
         this.invID = invID;
         this.count = count;
         this.price = price;
@@ -35,49 +34,19 @@ public class Shelter {
         
 }
         //What customers view
-        public Shelter(int invID, int price){
+        public Shelter(int invID, double price){
         this.invID = invID;
         this.price = price;
         }
     
         @Override
     public String toString(){
-        return "You want to buy pet food.  The food ID: " + this.invID 
-                + " , you only bought: " + count + ", the price: " + price 
+        return "The ID for your cat is: " + invID 
+                + " , you only bought: " + count + " animal, the price: $" + price 
                 + ", supply level is: " + suplvl;
     }
     
-    public int getInvID(){
-        return invID;
-    }
-    
-    public int setInvID(int invID){
-        return this.invID;
-    }
-    
-    public int getCount(){
-        return count;
-    }
-    
-    public int setCount(int count){
-        return this.count;
-    }
-    
-    public int getPrice(){
-        return price;
-    }
-    
-    public int setPrice(int price){
-        return this.price;
-    }
-    
-    public int getLvl(){
-        return suplvl;
-    }
-    
-    public int setLvl(int suplvl){
-        return this.suplvl;
-    }
+   
     
     /**
      * @param args the command line arguments
@@ -87,17 +56,41 @@ public class Shelter {
         Shelter shelter = new Shelter();
         Shelter cat = new Cat();
         Shelter dog = new Dog();
-        Cat[] addCat = new Cat[3];
-        Dog[] addDog = new Dog[3];
-        Scanner kb = new Scanner(System.in);
+        Shelter[] addCat = new Cat[3];
+        Shelter[] addDog = new Dog[3];
+        
         Random r = new Random();
                
-        int random = r.nextInt(999999);
-
+        int random = r.nextInt(99999);
         
-        System.out.println(addCat[0] = new Cat("Short Hair Domestic", "Meow"));
-        System.out.println(addCat[1] = new Cat("Long Hair Domestic", "Purr"));
-        System.out.println(addCat[2] = new Cat("Mixed Hair Domestic", "Chit"));
+        addCat[0] = new Cat("Short Hair Domestic", "Grey/White");
+        addCat[0].invID = random;
+        addCat[0].suplvl = 10;
+        addCat[0].count = 1;
+        addCat[0].price = 25.99;
+        System.out.println(addCat[0].toString());
+        
+        cat = new Cat("Long Hair Domestic", "Orange");
+        String brown = "Brown";
+        cat.invID = random;
+        cat.count = 3;
+        cat.price = 27.98;
+        cat.suplvl = 5;
+        System.out.println(cat.toString());
+        
+        addDog[0] = new Dog("Boxer", "Bow wow");
+        addDog[0].invID = random;
+        addDog[0].suplvl = 12;
+        addDog[0].count = 5;
+        addDog[0].price = 35.99;
+        System.out.println(addDog[0]);
+        
+        dog = new Dog("Poodle", "Bark");
+        dog.suplvl = 7;
+        dog.invID = random;
+        dog.count = 2;
+        dog.price = 39.99;
+        System.out.println(dog);
        
        
     }
