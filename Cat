@@ -1,4 +1,5 @@
-package week_2;
+
+package week_1;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,47 +13,53 @@ package week_2;
  */
 public class Cat extends Shelter{
     
-    String breed, sound;
+    String breed,color;
+    boolean expired;
     
     
     public Cat(){
         
     }
     
-    public Cat( String breed, String sound){
+    public Cat(String breed, String color){
         super();
         this.breed = breed; //food brand
-        this.sound = sound; //ToF if expired
+        this.color = color; //ToF if expired
        
     }
     
     @Override
     public String toString(){
-        return "The brand: " + breed + " . expired: " + sound;
+        return "The cat's ID: " + invID + ". You bought " + count + ". It cost $" 
+                + price + ". Supply level: " + suplvl 
+                + ". Cat's breed: " + breed + ". Cat's color: " + color; 
     }
     
-    public int setinvID(){
-        return this.invID;
-    }
     
-    
-    
-    public String getBreed(){
+    public String getBreed(String breed){
         return breed;
     }
     
     
-    public String setBred(String bred){
+    public String setBreed(String breed){
         return this.breed;
     }
     
-    public String getSound(){
-        return sound;
+    public String getColor(){
+        return color;
     }
     
-     public String setSound(){
-        return this.sound;
+     public String setColor(){
+        return this.color;
     }
+     
+     public boolean getExpired(boolean expired){
+         return expired = expired;
+     }
+     
+     public boolean setExpired(){
+         return this.expired;
+     }
 
     
 }
