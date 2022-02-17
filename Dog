@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package week_2;
+package week_1;
 
 /**
  *
@@ -27,12 +27,12 @@ public class Dog extends Shelter{
     
     @Override
     public String toString(){
-        return "Cat's breed: " + breed + " . sound: " + sound;
+        return "The dog's ID: " + invID + ". You bought " + count + ". It cost $" 
+                + price + ". Supply level: " + suplvl 
+                + ". Dog's breed: " + breed + ". Dog's sounds like: " + sound; 
     }
     
-    public int setinvID(){
-        return this.invID;
-    }
+   
     
     
     
