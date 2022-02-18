@@ -3,105 +3,144 @@ package week_2;
 
 import java.util.*;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
- * @author dalio
+ * @author Dallion WHitley
+ * 2/20/2022
+ * Inheritance Assignment
  */
 public class Shelter {
+ 
+        int invID, count, suplvl;
+        double price;
     
-        String name, book
-                ; 
-        int invID, count, price,suplvl;
-    
-    
-        public Shelter(){
-        
-        }
+        public Shelter(){}
         
         //Inventory
-        public Shelter(String name, int invID, int count, int price, int suplvl){
-        super();
-            this.name = name;
+        public Shelter(int invID, int count, double price, int suplvl){
         this.invID = invID;
         this.count = count;
         this.price = price;
         this.suplvl = suplvl;
-        
-}
-        //What customers view
-        public Shelter(int invID, int price){
-        this.invID = invID;
-        this.price = price;
         }
-    
-        @Override
-    public String toString(){
-        return "You want to buy pet food.  The food ID: " + this.invID 
-                + " , you only bought: " + count + ", the price: " + price 
-                + ", supply level is: " + suplvl;
-    }
-    
-    public int getInvID(){
-        return invID;
-    }
-    
-    public int setInvID(int invID){
-        return this.invID;
-    }
-    
-    public int getCount(){
-        return count;
-    }
-    
-    public int setCount(int count){
-        return this.count;
-    }
-    
-    public int getPrice(){
-        return price;
-    }
-    
-    public int setPrice(int price){
-        return this.price;
-    }
-    
-    public int getLvl(){
-        return suplvl;
-    }
-    
-    public int setLvl(int suplvl){
-        return this.suplvl;
-    }
-    
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
         // TODO code application logic here
-        Shelter shelter = new Shelter();
-        Shelter cat = new Cat();
-        Shelter dog = new Dog();
-        Cat[] addCat = new Cat[3];
-        Dog[] addDog = new Dog[3];
-        Scanner kb = new Scanner(System.in);
-        Random r = new Random();
-               
-        int random = r.nextInt(999999);
+        Shelter animal;
+        Shelter[] add;
 
+        Random r = new Random();
         
-        System.out.println(addCat[0] = new Cat("Short Hair Domestic", "Meow"));
-        System.out.println(addCat[1] = new Cat("Long Hair Domestic", "Purr"));
-        System.out.println(addCat[2] = new Cat("Mixed Hair Domestic", "Chit"));
+        /*
+        Declares overloaded Cat() and adds it to an array
+        May need if adding to a list
+        */
+        add = new Cat[1];
+        add[0] = new Cat(r.nextInt(999999), 1, 25.99, 10, "Long Hair Domestic", 
+                "Grey/White", true);
+        System.out.println(add[0].toString());
+        
+        /*
+        Alternative format initiating Cat()
+        */
+        animal = new Cat("Short Hair Domestic", "Orange", false );
+        animal.invID = r.nextInt(999999);
+        animal.count = 2;
+        animal.price = 26.99;
+        animal.suplvl = 15;
+        System.out.println(animal.toString());
+        
+        /*
+        Declares overloaded Dog() and adds it to an array
+        May need if adding to a list
+        */
+        add = new Dog[1];
+        add[0] = new Dog("Boxer", "Brown", false);
+        add[0].invID = r.nextInt(999999);
+        add[0].count = 3;
+        add[0].price = 30.99;
+        add[0].suplvl = 5;
+        System.out.println(add[0].toString());
+        
+        /*
+        Alternative format initiating Cat()
+        */
+        animal = new Dog(r.nextInt(999999), 4, 32.99, 23,"American Bully",
+                "Black/White", true);
+        System.out.println(animal.toString());
        
        
     }
-
-   
-    
 }
+
+class Dog extends Shelter{
+    
+    String breed, color;
+    boolean adopted;
+    
+    Random r = new Random();
+    int random = r.nextInt(999999);
+    
+    public Dog(){}
+    
+    //Constructor access attributes
+    //Will call Shelter attributes
+    public Dog(String breed, String color, boolean adopted){
+        super();//initialize super attributes
+        this.breed = breed; 
+        this.color = color; 
+        this.adopted = adopted;
+    }
+    //Overloaded Constructor calling all attributes
+    public Dog(int invID, int count, double price, int suplvl,
+            String breed, String color, boolean adopted){
+        super(invID, count, price, suplvl);//initialize super attributes
+        this.breed = breed; //food brand
+        this.color = color; //ToF if expired
+        this.adopted = adopted;
+    }
+    
+    @Override
+    public String toString(){
+        return "The dog's ID: " + invID + ". You bought " + count + ". It cost $" 
+                + price + ". Supply level: " + suplvl 
+                + ". Dog's breed: " + breed + ". Dog's color: " + color 
+                + ". Adoption: " + adopted;  
+    }
+}
+   
+    class Cat extends Shelter{      
+    String breed,color;
+    boolean adopted;
+    
+    Random r = new Random();
+        int random = r.nextInt(999999);
+    
+     //Constructor access attributes
+    //Will call Shelter attributes
+    public Cat(String breed, String color, boolean adopted){
+        super();//initialize super attributes
+        this.breed = breed; 
+        this.color = color; 
+        this.adopted = adopted;
+    }
+    
+//Overloaded Constructor calling all attributes
+    public Cat(int invID, int count, double price, int suplvl,
+            String breed, String color, boolean adopted){
+        super(invID, count, price, suplvl);//initialize super attributes
+        this.breed = breed; 
+        this.color = color; 
+        this.adopted = adopted; 
+    }
+    
+    @Override
+    public String toString(){
+        return "The cat's ID: " + invID + ". You bought " + count 
+                + ". It cost $" + price + ". Supply level: " + suplvl 
+                + ". Cat's breed: " + breed + ". Cat's color: " + color 
+                + ". Adoption: " + adopted; 
+    }
+}
+    
+
