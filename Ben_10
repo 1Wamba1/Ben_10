@@ -35,7 +35,6 @@ public class Game {
         
         /*Storyline by:
         @Dallion
-        @Amrits
         */
                 
          System.out.println("You are on a road-trip with Grandpa Max and Gwen! "
